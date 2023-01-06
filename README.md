@@ -8,12 +8,9 @@
 
 ## Installation
 
-Install my-project with npm
+Download and install the .exe file from the link below
 
-```bash
-  npm install my-project
-  cd my-project
-```
+[Find*aureus*](https://imagein.bmd-software.com/s/pA2L6uVsXu9ICGn)
     
 ## Summary
 
@@ -23,7 +20,7 @@ Osteomyelitis (OM) is a serious infection of the bone caused by the bacterium *S
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
 
 
 ## Acknowledgements
