@@ -4,10 +4,7 @@ import cv2
 import numpy as np
 from tkinter import Tk, filedialog
 import json
-import matplotlib.pyplot as plt
-from matplotlib_scalebar.scalebar import ScaleBar
 from tqdm import tqdm
-import pandas as pd
 from skimage import filters
 
 def ClosestColour(requested_colour):
