@@ -1,4 +1,3 @@
-
 ![Logo](https://github.com/shibarjun/FindAureus/blob/main/IconsGUI/Findaureus_icon_readme.gif)
 
 
