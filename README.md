@@ -2,7 +2,7 @@
 
 
 
-**Find bacteria across confocal laser scanning microscopy (CLSM) obtained infected bone tissues.**
+**Find bacteria across confocal laser scanning microscopy (CLSM) obtained infected bone tissue images.**
 
 
 
