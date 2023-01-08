@@ -8,7 +8,7 @@
 
 ## Installation
 
-Download and install the .exe file from the link below
+Download and run the .exe file from the link below
 
 [Find*aureus*](https://imagein.bmd-software.com/s/pA2L6uVsXu9ICGn)
     
