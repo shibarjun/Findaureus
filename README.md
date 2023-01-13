@@ -30,9 +30,7 @@ A hands-on demonstration can be requested upon request.
 
 ## Acknowledgements
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 861122 (ITN IMAGE-IN). We acknowledge support from the CSCC (FKZ 01EO1502), JBIL and ThIMEDOP (FKZ IZN 2018 0002).
 
 
 ## Appendix
