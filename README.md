@@ -12,14 +12,17 @@ Download and run the .exe file from the link below
     
 ## Summary
 
-Osteomyelitis (OM) is a serious infection of the bone caused by the bacterium *Staphylococcus aureus*. While X-rays, MRI, and CT scans can be used to monitor the infection, a bone biopsy with histopathologic examination and culture is considered the gold standard for diagnosis and helps determine the appropriate treatment. Researchers often use histopathological data and images, including those obtained through fluorescence microscopy, to study the infection and improve diagnosis, treatment, and trace-back of the infection. Fluorescence imaging, specifically laser scanning confocal microscopy, involves labeling specific cells, structures, or molecules with fluorophores and then detecting the fluorescence emitted when exposed to light of a specific wavelength to create an image. In the case of OM, this technique allows for detailed visualization of bone cells, structure, and bacteria from infected bone tissues. However, the resulting images can be complex and challenging to analyze, particularly when it comes to locating bacteria. Findaureus is an open-source Python based application that helps researchers or clinicians locate bacteria or bacterial regions in fluorescence images of infected bone tissue by providing easy-to-use tools and extracting relevant information. The Findaureus algorithm has been compared with state-of-the-art algorithms and validated with real users from different research and clinical institutions.
+Osteomyelitis is a serious bone infetion where fluorescence imaging provides a detailed visualization of bone cells, structure, and bacteria from infected bone tissues. However, the resulting images can be complex and challenging to analyze, particularly when it comes to locating bacteria. 
+Find*aureus* is an open-source Python-based application that helps researchers and clinicians quickly and accurately locate bacteria or bacterial regions in fluorescence images of infected bone tissue. This application provides easy-to-use tools and extracts relevant information, making it a powerful tool for researchers and clinicians alike. Findaureus has been compared to state-of-the-art algorithms and validated by real users from various research and clinical institutions, demonstrating its effectiveness in helping to identify and locate bacteria in infected bone tissue.
 
 
 
 ## Screenshots
 
 
+## Demo
 
+A hands-on demonstration can be requested upon request. 
 
 ## Acknowledgements
 
