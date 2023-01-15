@@ -19,10 +19,8 @@ Find*aureus* is an open-source Python-based application that helps researchers a
 ## Screenshots
 
 <p align="center">
-<img src = "https://github.com/shibarjun/FindAureus/blob/main/Images/Figure_6.png" />
+<img src = "https://github.com/shibarjun/FindAureus/blob/main/Images/Screenshot_1.png" width="550" height="400" /><img src = "https://github.com/shibarjun/FindAureus/blob/main/Images/Screenshot_2.png" width="350" height="400" />   
 </p>
-
-(a)
 
 ## Demo
 
