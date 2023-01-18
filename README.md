@@ -28,7 +28,11 @@ Find*aureus* is an open-source Python-based application that helps researchers a
 
 ## Demo
 
-Currently, the dataset used in building the application is not available as open source due to ongoing scientific research purposes. Therefore, no demonstration files are available. However, hands-on demonstrations can be requested upon request. 
+Currently, the dataset used in building the application is not available as open source due to ongoing scientific research purposes. Therefore, no demonstration files are available. However, hands-on demonstrations can be requested upon request. Enjoy the below application demo video while you wait!
+
+<p align="center">
+<img src = "https://github.com/shibarjun/FindAureus/blob/main/Images/Findaureus_Demo.gif" width="600" height="550" />   
+</p>
 
 ## Acknowledgements
 
