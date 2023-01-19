@@ -2,9 +2,22 @@
 from FindAureus.FindAureusFunctions import *
 from io import BytesIO
 import os
+import sys
 import PySimpleGUI as sg
 from PIL import Image
 import matplotlib.pyplot as plt
+
+if getattr(sys, 'frozen', False):
+    import pyi_splash
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+        
+    return os.path.join(base_path, relative_path)
 
 #set theme, font, colors
 sg.theme("Material2")
@@ -56,9 +69,9 @@ def explore(value):
 #features on the left column
 
 left_column = [[sg.Text("Image file:"), sg.Input(key="-FILE-"),
-                sg.FileBrowse(file_types=file_types),sg.Button("Load Image", enable_events = True, expand_x=True),sg.Button('Clear', enable_events = True, button_color=colors, image_filename=r'IconsGUI\delete.png',tooltip='Clear all' )],
+                sg.FileBrowse(file_types=file_types),sg.Button("Load Image", enable_events = True, expand_x=True),sg.Button('Clear', enable_events = True, button_color=colors, image_filename=resource_path(resource_path(r'IconsGUI\delete.png')),tooltip='Clear all' )],
                [sg.Image(key='-IMAGE-', visible=True,size=(500, 500), enable_events = True,expand_x=True, expand_y=True)],
-               [sg.Button('Explore', visible=False, enable_events = True, button_color=colors, image_filename=r'IconsGUI\find_search_locate.png',tooltip='Explore selected image')],
+               [sg.Button('Explore', visible=False, enable_events = True, button_color=colors, image_filename=resource_path(r'IconsGUI\find_search_locate.png'),tooltip='Explore selected image')],
                [sg.Text('\n\nChannels avaliable:', key = '-TEXT-', visible = False, enable_events = True, expand_x=True, justification='left')],
                [sg.Radio(None, 1, key = '0', visible=False, enable_events = True, expand_x=True),
                     sg.Radio(None, 1, key = '1', visible=False, enable_events = True, expand_x=True),
@@ -67,7 +80,7 @@ left_column = [[sg.Text("Image file:"), sg.Input(key="-FILE-"),
                     sg.Radio(None, 1, key = '4', visible=False, enable_events = True, expand_x=True),
                     sg.Radio(None, 1, key = '5', visible=False, enable_events = True, expand_x=True),
                     sg.Radio(None, 1, key = '6', visible=False, enable_events = True, expand_x=True),
-                    sg.Button('Ok', visible = False, expand_x=True,button_color=colors, image_filename=r'IconsGUI\Things.png')],
+                    sg.Button('Ok', visible = False, expand_x=True,button_color=colors, image_filename=resource_path(r'IconsGUI\Things.png'))],
                [sg.Text('', key = '-ZTEXT-', visible = False, enable_events = True)],
                [sg.Slider(range=(None, None),orientation='h',disable_number_display=True, key='-SLIDER-', enable_events = True, visible=False, expand_x=True), 
                 sg.Text('', key = '-ZNo-', visible = False, enable_events = True)],
@@ -94,10 +107,12 @@ window_layout = [
     [sg.Column(left_column, vertical_alignment='top', expand_x=True, expand_y=True,element_justification='center'), sg.VSeparator(pad=(20,0)), sg.Column(right_column, vertical_alignment='top',expand_x=True, expand_y=True,element_justification='center')],
 ]
 
-window = sg.Window("FindAureus", window_layout,finalize=True,use_ttk_buttons=True, resizable=False, element_justification='center', icon=r'IconsGUI/C2-G4_ROI7a_2P_for_icon_new.ico')
+window = sg.Window("Findaureus", window_layout,finalize=True,use_ttk_buttons=True, resizable=False, element_justification='center', icon=resource_path(r'IconsGUI/C2-G4_ROI7a_2P_for_icon_new.ico'))
 
 ok_image_list = [] 
 try:
+    if getattr(sys, 'frozen', False):
+        pyi_splash.close()
     while True:
         event, values = window.read()
         
@@ -106,7 +121,7 @@ try:
             break
     # button load image : load the image and display brightfiled image as default image as ask to select the channel
         if event == "Load Image":
-            sg.PopupAnimated(sg.DEFAULT_BASE64_LOADING_GIF, time_between_frames=50,grab_anywhere=False)
+            sg.PopupAnimated(sg.DEFAULT_BASE64_LOADING_GIF,message= 'Loading....', time_between_frames=50, keep_on_top= False,grab_anywhere=False)
             reset()
             ok_image_list = []
             filename = values["-FILE-"]
@@ -171,7 +186,8 @@ try:
     
     # button find bacteria: find bacteria across avlaibale zplanes
         if event == 'Find Bacteria':
-            sg.PopupAnimated(sg.DEFAULT_BASE64_LOADING_GIF, time_between_frames=50,grab_anywhere=False)
+            window['-SBAR-'].update('Finding....')
+            sg.PopupAnimated(sg.DEFAULT_BASE64_LOADING_GIF, time_between_frames=50,grab_anywhere=False,keep_on_top = False)
             zplanes_with_bacteria, bacteria_coordinate, zplanes_with_no_bacteria, pixlewise_bacteria_coordinate, bacteria_area, metadata = FindBacteriaAndNoBacteria(ok_image_list, file[0])
             
             list_bacteria_coordinate = list(bacteria_coordinate.keys())
@@ -230,9 +246,10 @@ try:
                 window['BacteriaRegionFound'].update(visible=False)
     
         if event =='Export results':
+            sg.PopupAnimated(sg.DEFAULT_BASE64_LOADING_GIF, time_between_frames=50,grab_anywhere=False)
             export_folder_name = ExportBacteria(zplanes_with_bacteria, bacteria_coordinate)
             window['-SBAR-'].update('Results exported at: '+str(export_folder_name))
-            
+            sg.PopupAnimated(image_source=None)
         if event == 'Clear':
                 reset()
                 
@@ -243,4 +260,5 @@ try:
     
     window.close()
 except Exception as e:
+    sg.PopupAnimated(image_source=None)
     sg.popup_error_with_traceback('AN ERROR OCCURRED!', str(e)+' Please inform to the owner Thank you')
