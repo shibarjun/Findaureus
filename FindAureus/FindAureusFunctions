@@ -211,6 +211,7 @@ def ChannelImageList(image_file_numpy_array, user_option):
     if len(image_file_numpy_array.shape) == 8:
         try:
             two_d_image = image_file_numpy_array[0, 0, :, 0, :, :, :, 0]
+            img_check = two_d_image[[1], [0], :, :][0]
         except IndexError:
             two_d_image = image_file_numpy_array[0, 0, 0, :, :, :, :, 0]
             
