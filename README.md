@@ -10,7 +10,7 @@ Download and run the .exe file from the link below
 
 [Find*aureus*](https://imagein.bmd-software.com/s/pA2L6uVsXu9ICGn)
 
-Find*aureus* currently supports only *.czi* (Carl Zeiss) file extensions due to the limited variety of datasets available. Users are encouraged to report any bugs via the Issues page on GitHub or via below contact. As the application becomes more widely used, we will have the opportunity to interact with a wider range of file extensions and improve the application in future updates.
+Find*aureus* currently supports only CZI (Carl Zeiss) file extensions due to the limited variety of datasets available. Users are encouraged to report any bugs via the Issues page on GitHub or via below contact. As the application becomes more widely used, we will have the opportunity to interact with a wider range of file extensions and improve the application in future updates.
 
 Contact: shibarjunmandal@gmail.com / shibarjun.mandal@leibniz.ipht.de
 
