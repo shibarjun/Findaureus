@@ -1,5 +1,5 @@
 #Necessary packages
-from FindAureus.FindAureusFunctions import *
+from FindAureus.FindaureusFunctions import *
 from io import BytesIO
 import os
 import sys
@@ -26,8 +26,7 @@ sg.set_options(font=font)
 colors = (sg.theme_background_color(), sg.theme_background_color())
 
 #specify file types
-file_types = [('czi files(*.czi)','*.czi'),
-              ("All files (*.*)", "*.*")]
+file_types = [('Zeiss, NIkon, Leica','*.czi;*.nd2;*.lif'),("All files (*.*)", "*.*")]
 
 #funtions required
 def array_to_data(array):
@@ -38,6 +37,7 @@ def array_to_data(array):
         data = output.getvalue()
     return data
 
+#reset all the features
 def reset():
     for key in values:
         window['-IMAGE-'].update('',size=(500,500))
@@ -62,16 +62,18 @@ def reset():
         window.refresh()
     return None
 
+#default matplotlib window for exploring the selected image in an interactively manner
 def explore(value):
+    # %matplotlib qt
     plt.imshow(value, cmap='binary_r')
     plt.show(block=False)
 
 #features on the left column
 
 left_column = [[sg.Text("Image file:"), sg.Input(key="-FILE-"),
-                sg.FileBrowse(file_types=file_types),sg.Button("Load Image", enable_events = True, expand_x=True),sg.Button('Clear', enable_events = True, button_color=colors, image_filename=resource_path(resource_path(r'IconsGUI\delete.png')),tooltip='Clear all' )],
-               [sg.Image(key='-IMAGE-', visible=True,size=(500, 500), enable_events = True,expand_x=True, expand_y=True)],
-               [sg.Button('Explore', visible=False, enable_events = True, button_color=colors, image_filename=resource_path(r'IconsGUI\find_search_locate.png'),tooltip='Explore selected image')],
+                sg.FileBrowse(file_types=file_types),sg.Button("Load Image", enable_events = True, expand_x=True),sg.Button(key ='Clear', enable_events = True, button_color=colors, image_filename=resource_path(r'IconsGUI\delete.png'),tooltip='Clear all' )],
+               [sg.Image(key ='-IMAGE-', visible=True,size=(500, 500), enable_events = True,expand_x=True, expand_y=True)],
+               [sg.Button('', visible=False, enable_events = True, button_color=colors, image_filename=resource_path(r'IconsGUI\find_search_locate.png'),key ='Explore',tooltip='Explore selected image')],
                [sg.Text('\n\nChannels avaliable:', key = '-TEXT-', visible = False, enable_events = True, expand_x=True, justification='left')],
                [sg.Radio(None, 1, key = '0', visible=False, enable_events = True, expand_x=True),
                     sg.Radio(None, 1, key = '1', visible=False, enable_events = True, expand_x=True),
@@ -80,7 +82,7 @@ left_column = [[sg.Text("Image file:"), sg.Input(key="-FILE-"),
                     sg.Radio(None, 1, key = '4', visible=False, enable_events = True, expand_x=True),
                     sg.Radio(None, 1, key = '5', visible=False, enable_events = True, expand_x=True),
                     sg.Radio(None, 1, key = '6', visible=False, enable_events = True, expand_x=True),
-                    sg.Button('Ok', visible = False, expand_x=True,button_color=colors, image_filename=resource_path(r'IconsGUI\Things.png'))],
+                    sg.Button(key ='Ok', visible = False, expand_x=True,button_color=colors, image_filename=resource_path(r'IconsGUI\Things.png'))],
                [sg.Text('', key = '-ZTEXT-', visible = False, enable_events = True)],
                [sg.Slider(range=(None, None),orientation='h',disable_number_display=True, key='-SLIDER-', enable_events = True, visible=False, expand_x=True), 
                 sg.Text('', key = '-ZNo-', visible = False, enable_events = True)],
@@ -97,7 +99,7 @@ right_column = [[sg.Button('Find Bacteria', disabled=True, expand_x=True, toolti
                 [sg.Text('View image with bacteria location', key = 'ViewText', enable_events=True,visible=False, expand_x=True)],
                 [sg.CB('View image with bacteria location', enable_events=True, size=(30,2), key='-BACBOX-', visible=False, expand_x=True)],
                 [sg.Text('', key = 'BacteriaRegionFound', visible=False, expand_x=True)],
-                [sg.Button('Export results',visible=False, expand_x=True, tooltip = 'Export bacteria boxed images and coordinates')],
+                [sg.Button('Export Results',key='Export results',visible=False, expand_x=True, tooltip = 'Export bacteria boxed images and coordinates')],
                 [sg.Text('', key = 'ImageInfo', visible=False, expand_x=True)]]
                 
 
@@ -126,12 +128,26 @@ try:
             ok_image_list = []
             filename = values["-FILE-"]
             if os.path.exists(filename):
-                file = ReadImageFile(filename)
-                size_x, size_y = ImageSize(file[0])
-                zplane = ZPlanesAvaliable(file[0])
-                channels = ChannelsAvaliable(file[0])
-                take_defaut_image = ChannelImageList(file[1], (len(channels)-1))
-                image_height, image_width,image_height_um, image_width_um, resolution  = ImageInformation(file[0], take_defaut_image)
+                try:
+                    
+                    file = ReadFile.ReadImageFile(filename)
+                except: #exception
+                    
+                    file = ReadFileException.ReadImageFile(filename)
+                    size_x, size_y = ReadFileException.ImageSize(file[0])
+                    zplane = ReadFileException.ZPlanesAvaliable(file[0])
+                    channels = ReadFileException.No_ChannelsAvaliable(file[0])
+                    take_defaut_image = ReadFileException.ChannelImageList(file[1], (len(channels)-1))
+                    image_height, image_width,image_height_um, image_width_um, depth_um, resolution  = ReadFileException.ImageInformation(file[0], take_defaut_image)
+                    
+                else:
+                                      
+                    size_x, size_y = ReadFile.ImageSize(file[0])
+                    zplane = ReadFile.ZPlanesAvaliable(file[0])
+                    channels = ReadFile.ChannelColor(filename)
+                    take_defaut_image = ReadFile.ChannelImageList(file[1], (len(channels)-1))
+                    image_height, image_width,image_height_um, image_width_um, depth_um, resolution  = ReadFile.ImageInformation(file[0], take_defaut_image)
+                
                 default_image = array_to_data(take_defaut_image[0])
                 window['-IMAGE-'].update(data = default_image)
                 for chnl_no in range(0, len(channels)):
@@ -148,7 +164,12 @@ try:
             window['Explore'].update(visible= True)
             key_value = int(list(values.keys())[list(values.values()).index(True)])
             window['-IMAGE-'].update( visible=True )
-            ok_image_list = ChannelImageList(file[1], key_value)
+            try:
+                
+                ok_image_list = ReadFile.ChannelImageList(file[1], key_value)
+            except:
+                ok_image_list = ReadFileException.ChannelImageList(file[1], key_value)
+                
             ok_image = array_to_data(ok_image_list[0])
             window['-IMAGE-'].update(data = ok_image)
             if zplane == ():
@@ -246,10 +267,14 @@ try:
                 window['BacteriaRegionFound'].update(visible=False)
     
         if event =='Export results':
-            sg.PopupAnimated(sg.DEFAULT_BASE64_LOADING_GIF, time_between_frames=50,grab_anywhere=False)
-            export_folder_name = ExportBacteria(zplanes_with_bacteria, bacteria_coordinate)
-            window['-SBAR-'].update('Results exported at: '+str(export_folder_name))
-            sg.PopupAnimated(image_source=None)
+            try: 
+                sg.PopupAnimated(sg.DEFAULT_BASE64_LOADING_GIF, time_between_frames=50,grab_anywhere=False)
+                export_folder_name = ExportBacteria(zplanes_with_bacteria, bacteria_coordinate)
+                window['-SBAR-'].update('Results exported at: '+str(export_folder_name))
+                sg.PopupAnimated(image_source=None)
+            except:
+                window['-SBAR-'].update('Result export cancelled by the user')
+                sg.PopupAnimated(image_source=None)
         if event == 'Clear':
                 reset()
                 
