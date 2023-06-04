@@ -1,3 +1,4 @@
+#imports
 from aicsimageio import AICSImage
 import czifile as cf
 import webcolors
@@ -6,6 +7,7 @@ import numpy as np
 from tkinter import Tk, filedialog
 import json
 
+#functions and class
 def ClosestColour(requested_colour):
     """
     
@@ -20,8 +22,9 @@ def ClosestColour(requested_colour):
 
     Returns
     -------
-    colours_name : 
+    colours_name : str
         DESCRIPTION.
+        color name
 
     """
 
@@ -215,11 +218,11 @@ class ReadFile():
 
         Returns
         -------
-        scale_z:
+        scale_z: float
             pixel scaling information in respect to depth 
-        scale_x:
+        scale_x: float
             pixel scaling information in respect to width 
-        scale_z:
+        scale_z: float
             pixel scaling information in respect to height 
 
         '''
@@ -425,11 +428,11 @@ class ReadFileException:
 
         Returns
         -------
-        scale_z:
+        scale_z: float
             pixel scaling information in respect to depth 
-        scale_x:
+        scale_x: float
             pixel scaling information in respect to width 
-        scale_z:
+        scale_z: float
             pixel scaling information in respect to height 
 
         '''
@@ -547,7 +550,7 @@ class ReadFileException:
         '''
         height,width = image_list_numpy_array[0].shape #in pixels
         depth = len(image_list_numpy_array)
-        scale_z, scale_x, scale_y = ReadFile.ImageScalingXY(file_metadata)
+        scale_z, scale_x, scale_y = ReadFileException.ImageScalingXY(file_metadata)
         height_um, width_um, depth_um  = round(height*scale_x,3), round(width*scale_y,3),round(depth*scale_z,3) #in um
         resolution = round(1/scale_x,3) #pixel per um
         return(height, width, height_um, width_um, depth_um, resolution)
@@ -861,7 +864,7 @@ def FindBacteriaAndNoBacteria(input_image_list, file_metadata):
         all pixle coordinates with suspected bacteria
     bacteria_area:
         
-    file_metadata:
+    file_metadata: dict
     
 
     '''
@@ -976,6 +979,7 @@ def FindAureus():
         choosechannel = ReadFile.ChooseChannel(channels)
         channelimagelist = ReadFile.ChannelImageList(inputimagefilenumpyarray, choosechannel)
         faureus = FindBacteriaAndNoBacteria(channelimagelist, inputimagefileobject)
+        
     if faureus[0] != []:
         asktoexport = input("Do you want to export the images and the bacterial coordinates? Y/N :")
         if asktoexport=='Y' or asktoexport=='yes' or asktoexport=='y':
