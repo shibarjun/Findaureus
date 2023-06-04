@@ -16,7 +16,7 @@ Contact: shibarjunmandal@gmail.com / shibarjun.mandal@leibniz.ipht.de
 
 ## Summary
 
-Osteomyelitis is a serious bone infetion where fluorescence imaging provides a detailed visualization of bone cells, structure, and bacteria from infected bone tissues. However, the resulting images can be complex and challenging to analyze, particularly when it comes to locating bacteria. 
+Osteomyelitis is a serious bone infection where fluorescence imaging provides a detailed visualization of bone cells, structure, and bacteria from infected bone tissues. However, the resulting images can be complex and challenging to analyze, particularly when it comes to locating bacteria. 
 
 Find*aureus* is an open-source Python-based application that helps researchers and clinicians quickly and accurately locate bacteria or bacterial regions in fluorescence images of infected bone tissue. This application provides easy-to-use tools and extracts relevant information, making it a powerful tool for researchers and clinicians alike. Find*aureus* has been compared to state-of-the-art algorithms and validated by real users from various research and clinical institutions, demonstrating its effectiveness in helping to identify and locate bacteria in infected bone tissue. 
 
