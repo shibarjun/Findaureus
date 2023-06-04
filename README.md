@@ -1,5 +1,5 @@
 <p align="center">
-<img src = "https://github.com/shibarjun/FindAureus/blob/main/IconsGUI/Findaureus_icon_readme.gif" />
+<img src = "https://github.com/shibarjun/FindAureus/blob/main/Images/Findaureus_icon_readme.gif" />
 </p>
 
 <h1 align="center" style="margin-top: 0px;">Find bacteria across confocal laser scanning microscopy (CLSM) obtained infected bone tissue images.</h1>
