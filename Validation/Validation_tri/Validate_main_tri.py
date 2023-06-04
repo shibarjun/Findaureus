@@ -1,5 +1,5 @@
 from Validation.MakeBacterialImagesFunctions import *
-from Validation.Validation_tri.FindAureusFunctions_tri import *
+from FindAureusFunctions_tri import *
 from Validation.ValidateFunctions import *
 import pickle
 accuracy = []
