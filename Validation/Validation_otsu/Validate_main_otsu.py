@@ -1,5 +1,5 @@
 from Validation.MakeBacterialImagesFunctions import *
-from Validation.Validation_otsu.FindAureusFunctions_otsu import *
+from FindAureusFunctions_otsu import *
 from Validation.ValidateFunctions import *
 import pickle
 
