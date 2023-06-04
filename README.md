@@ -10,7 +10,7 @@ Download and run the .exe file from the link below
 
 [Find*aureus*](https://drive.google.com/drive/folders/1u4iCgu4QWzZt4n1a0fjig7-KyUCl9HYZ?usp=share_link)
 
-Find*aureus* currently supports only CZI (Carl Zeiss) file extensions due to the limited variety of datasets available. Users are encouraged to report any bugs via the Issues page on GitHub or via below contact. As the application becomes more widely used, we will have the opportunity to interact with a wider range of file extensions and improve the application in future updates.
+Find*aureus*, currently under testing, is being evaluated using CZI (Carl Zeiss) file extensions dataset. This choice is driven by the limited variety of datasets available for testing purposes. However, it's worth noting that the software is designed to accommodate other image file extensions as well, including ND2 (Nikon) and LIF (Leica). Users are encouraged to report any bugs via the Issues page on GitHub or via below contact. As the application gains wider usage, we will have the opportunity to engage with various file extensions, diverse tissue types, and bacteria. This will allow us to enhance the application through future updates, ensuring its continual improvement.
 
 Contact: shibarjunmandal@gmail.com / shibarjun.mandal@leibniz.ipht.de
 
