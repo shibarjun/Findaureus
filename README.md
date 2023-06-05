@@ -6,7 +6,16 @@
 
 ## Installation
 
-Please find the instruction sheet [here](https://github.com/shibarjun/FindAureus/blob/main/Others/Instruction.md)
+For running the application
+----------------------------------------------------------
+1. Click the "Download Findaureus" button from the below link.
+2. Select the option to download the software as a ZIP file.
+3. Once the ZIP file is downloaded, navigate to the location where it was saved on your computer.
+4. Extract the contents of the ZIP file using a preferred extraction tool (e.g., WinRAR, 7-Zip).
+5. After extraction, you should see a folder containing the extracted files.
+6. Open the extracted folder and search for the executable (EXE) file. Named "Findaureus".
+7. Double-click on the EXE file to launch the software application.
+8. You can now use the software as intended.
 
 [Download Findaureus](https://drive.google.com/drive/folders/1u4iCgu4QWzZt4n1a0fjig7-KyUCl9HYZ?usp=sharing)
 
