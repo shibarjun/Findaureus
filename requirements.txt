@@ -1,1 +1,13 @@
+# Please install the following dependencies
 
+pip install aicsimageio==4.11.0 
+pip install aicsimageio[nd2]==0.5.3
+pip install aicspylibczi==3.1.2 fsspec==2023.5.0
+pip install readlif==0.6.5
+pip install czifile==2019.7.2
+pip install webcolors==1.13
+pip install cv2==4.7.0.72
+pip install numpy==1.24.3
+pip install PySimpleGUI==4.60.5
+pip install Pillow==9.5.0
+pip install matplotlib==3.6.2
