@@ -3,7 +3,8 @@
 
 aicsimageio==4.11.0 
 nd2==0.5.3
-aicspylibczi==3.1.2 fsspec==2023.5.0
+aicspylibczi==3.1.2 
+fsspec==2023.5.0
 readlif==0.6.5
 czifile==2019.7.2
 webcolors==1.13
