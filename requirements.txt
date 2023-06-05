@@ -1,4 +1,5 @@
 # Please install the following dependencies
+# Please ensure that you are using Python version 3.9.7 by creating a new environment and installing the below required packages within it before proceeding with the validation process.
 
 aicsimageio==4.11.0 
 aicsimageio nd2==0.5.3
