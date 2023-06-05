@@ -6,7 +6,7 @@
 
 ## Installation
 
-Please find the instruction sheet [here](https://github.com/shibarjun/FindAureus/blob/main/Others/Instruction)
+Please find the instruction sheet [here](https://github.com/shibarjun/FindAureus/blob/main/Others/Instruction.md)
 
 [Download Find*aureus*](https://drive.google.com/drive/folders/1u4iCgu4QWzZt4n1a0fjig7-KyUCl9HYZ?usp=sharing)
 
