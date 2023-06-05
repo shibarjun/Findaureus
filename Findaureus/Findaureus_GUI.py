@@ -278,3 +278,4 @@ try:
     window.close()
 except Exception as e:
     sg.popup_error_with_traceback('AN ERROR OCCURRED!', str(e)+' Please inform to the owner Thank you')
+
