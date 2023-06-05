@@ -14,7 +14,8 @@ For validation purpose
 ----------------------------------------------------------
 1. Visit the Validation directory
 2. Unzip the Dataset file, consisting bacterial images
-3. Select the preferred validation technique folder
-4. Run the Validate_main_"validation technique".py file
-5. Select the CZI image file* you want to use for validation (*due to ongoing scientific research purposes the image files can only be shared upon request).
-6. Uncomment the lines in the script to enable saving the result.
+3. If needed please check the "Dataset" path addressed correctly in the MakeBacterialImagesFunctions.py file 
+4. Select the preferred validation technique folder
+5. Run the Validate_main_"validation technique".py file
+6. Select the CZI image file* you want to use for validation (*due to ongoing scientific research purposes the image files can only be shared upon request).
+7. Uncomment the lines in the script to enable saving the result.
