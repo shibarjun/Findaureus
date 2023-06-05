@@ -108,7 +108,7 @@ window_layout = [
     [sg.Column(left_column, vertical_alignment='top', expand_x=True, expand_y=True,element_justification='center'),sg.VSeparator(pad=(20,0)), sg.Column(right_column, vertical_alignment='top',expand_x=True, expand_y=True,element_justification='center')],
 ]
 
-window = sg.Window("Findaureus", window_layout,finalize=True,use_ttk_buttons=True, resizable=False, element_justification='center', icon=resource_path(r'C2-G4_ROI7a_2P_for_icon_new.ico'))
+window = sg.Window("Findaureus", window_layout,finalize=True,use_ttk_buttons=True, resizable=False, element_justification='center', icon=resource_path(r'application_icon.ico'))
 
 ok_image_list = [] 
 try:
