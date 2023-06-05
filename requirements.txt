@@ -2,15 +2,15 @@
 # Please ensure that you are using Python version 3.9.7 by creating a new environment and installing the below required packages within it before proceeding with the validation process.
 
 aicsimageio==4.11.0 
-aicsimageio nd2==0.5.3
+nd2==0.5.3
 aicspylibczi==3.1.2 fsspec==2023.5.0
 readlif==0.6.5
 czifile==2019.7.2
 webcolors==1.13
-cv2==4.7.0.72
+opencv-python==4.7.0.72
 numpy==1.24.3
 PySimpleGUI==4.60.5
 Pillow==9.5.0
 matplotlib==3.6.2
 scikit-image==0.20.0
-tqdm
+tqdm==4.65.0
