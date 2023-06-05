@@ -43,6 +43,8 @@ Currently, the dataset used in building the application is not available as open
 <img src = "https://github.com/shibarjun/FindAureus/blob/main/Images/Findaureus_Demo.gif" width="600" height="550" />   
 </p>
 
+Users are kindly requested to utilize the application with their own dataset and provide any error messages or feedback they encounter during its usage. Your valuable input will greatly assist us in improving the application's functionality and addressing any issues that may arise. Thank you for your cooperation and support!
+
 ## Acknowledgements
 
 This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 861122 (ITN IMAGE-IN). We acknowledge support from the CSCC (FKZ 01EO1502), JBIL and ThIMEDOP (FKZ IZN 2018 0002).
