@@ -446,11 +446,10 @@ def ExportBacteria(bacteria_boxed_image_list=False, centroids=False, scaling_inf
         for listsize in tqdm(range(0, len(bacteria_boxed_image_list))):
             bacteria_boxed = bacteria_boxed_image_list[listsize]
             cv2.imwrite(output_folder+'/Z_%i.png'%listsize, bacteria_boxed)
-            with open(output_folder+'/BacteriaCoordinates.
-                      ', 'w') as fp:
+            with open(output_folder+'/BacteriaCoordinates.json', 'w') as fp:
                 fp.write(json.dumps(centroids))
     
-    print('\nBacteria image/images and coordinates exported at' + output_folder)
+    # print('\nBacteria image/images and coordinates exported at' + output_folder)
     
     
     return(output_folder)
