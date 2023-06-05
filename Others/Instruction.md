@@ -10,7 +10,7 @@ For running the application
 8. Double-click on the EXE file to launch the software application.
 9. You can now use the software as intended.
 
-For validation purpose
+For validation purpose (use requirements.txt to download all the dependencies)
 ----------------------------------------------------------
 1. Visit the Validation directory
 2. Unzip the Dataset file, consisting bacterial images
