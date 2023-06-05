@@ -1,3 +1,5 @@
+For running the application
+----------------------------------------------------------
 1. Visit the Findaureus GitHub repository.
 2. Locate the "Download Findaureus" button on the repository page and click on it.
 3. Select the option to download the software as a ZIP file.
@@ -7,3 +9,11 @@
 7. Open the extracted folder and search for the executable (EXE) file. Named "Findaureus".
 8. Double-click on the EXE file to launch the software application.
 9. You can now use the software as intended.
+
+For validation purpose
+----------------------------------------------------------
+1. Visit the Validation directory
+2. Select the preferred validation technique folder
+3. Run the Validate_main_"validation technique".py file
+4. Select the CZI image file* you want to use for validation (*due to ongoing scientific research purposes the image files can only be shared upon request).
+5. Uncomment the lines in the script to enable saving the result.
