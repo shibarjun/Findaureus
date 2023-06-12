@@ -43,7 +43,7 @@ For the convenience of application testing, we provide two types of CZI extensio
 <img src = "https://github.com/shibarjun/FindAureus/blob/main/Images/Findaureus_Demo.gif" width="600" height="550" />   
 </p>
 
-Users are kindly requested to utilize the application with their own dataset and provide any error messages or feedback they encounter during its usage. Your valuable input will greatly assist us in improving the application's functionality and addressing any issues that may arise. Thank you for your cooperation and support!
+We kindly request users to utilize the application with their own datasets, if available, and share any encountered error messages or feedback during usage. Your valuable input will greatly help us improve the functionality of the application and address any issues that may arise. Thank you for your cooperation and support!
 
 ## Acknowledgements
 
