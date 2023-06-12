@@ -37,7 +37,7 @@ Findaureus is an open-source Python-based application that helps researchers and
 
 ## Demo
 
-Currently, the dataset used in building the application is not available as open source due to ongoing scientific research purposes. Therefore, no demonstration files are available. However, hands-on demonstrations can be requested upon request. Enjoy the below application demo video while you wait!
+For the convenience of application testing, we provide two types of CZI extension image files: a tissue overview scan (3788 pixels (x) × 3788 pixels (y) × 3 (z) × 6 (channel)) and a detail scan (1316 pixels (x) × 1316 pixels (y) × 120 (z) × 4 (channel)). These files are currently publicly accessible and can be found in the dataset repository on GitHub. Furthermore, all the image files mentioned in the manuscript can be obtained by making a request. Please ensure to [cite the article](https://www.mdpi.com/1422-0067/24/11/9762) if you utilize this data. It is important to note that all the image files belong to the referenced research article. However, hands-on demonstrations are available upon request. While waiting, you can enjoy the application demo video below.
 
 <p align="center">
 <img src = "https://github.com/shibarjun/FindAureus/blob/main/Images/Findaureus_Demo.gif" width="600" height="550" />   
