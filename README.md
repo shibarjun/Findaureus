@@ -19,7 +19,7 @@ For running the application
 
 [Download Findaureus](https://github.com/shibarjun/Findaureus/releases/download/untagged-535b007f3400e6311660/Findaureus.zip)
 
-Findaureus, currently under testing, is being evaluated using CZI (Carl Zeiss) file extensions infected mouse bone dataset. This choice is driven by the limited variety of datasets available for testing purposes. However, it's worth noting that the software is designed to accommodate other image file extensions as well, specifically ND2 (Nikon) and LIF (Leica). Users are encouraged to report any bugs via the Issues page on GitHub or via below contact. As the application gains wider usage, we will have the opportunity to engage with various file extensions, diverse tissue types, and bacteria. This will allow us to enhance the application through future updates, ensuring its continual improvement.
+Findaureus, currently under testing, is being evaluated on infected mouse bone dataset, CZI (Carl Zeiss) file extensions. This choice is driven by the limited variety of datasets available for testing purposes. However, it's worth noting that the software is designed to accommodate other image file extensions as well, specifically ND2 (Nikon) and LIF (Leica). Users are encouraged to report any bugs via the Issues page on GitHub or via below contact. As the application gains wider usage, we will have the opportunity to engage with various file extensions, diverse tissue types, and bacteria. This will allow us to enhance the application through future updates, ensuring its continual improvement.
 
 Contact: shibarjunmandal@gmail.com / shibarjun.mandal@leibniz.ipht.de
 
