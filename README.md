@@ -4,10 +4,9 @@
 
 <h1 align="center" style="margin-top: 0px;">Find bacteria across confocal laser scanning microscopy (CLSM) obtained infected bone tissue images.</h1>
 
-## Installation
 
-For running the application
-----------------------------------------------------------
+## Running the application
+
 1. Access the following link and click on the "Download Findaureus" button.
 2. Choose the option to download the software as a ZIP file.
 3. Once the download is complete, locate the downloaded ZIP file on your computer.
