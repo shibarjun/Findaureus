@@ -178,3 +178,43 @@ def FindAccuracy(fake_bacteria_coordinate, find_fake_bacteria_coordinates, false
     acc = sum(acc_list)/total_fake_image*100
     print('Accuracy:'+str(acc))
     return(acc_list, acc)
+
+def update_predicted_coordinates(predicted_coordinates, actual_coordinates, range_threshold=7):
+    updated_predicted = []
+
+    for pred_x, pred_y in predicted_coordinates:
+        is_actual = False
+        updated_coord = (pred_x, pred_y)
+
+        for actual_x, actual_y in actual_coordinates:
+            if abs(pred_x - actual_x) <= range_threshold and abs(pred_y - actual_y) <= range_threshold:
+                is_actual = True
+                updated_coord = (actual_x, actual_y)
+                break
+
+        updated_predicted.append(updated_coord)
+
+    return updated_predicted
+
+def UpdatePredictedCoordinatesList(predicted_coordinates_dict, actual_bacteria_coordinates_list):
+    
+    updated_predicted_list = []
+    
+    for zplane_no in range(0, len(actual_bacteria_coordinates_list)):
+        
+        predicted_coordinates = predicted_coordinates_dict["xy_Z_"+str(zplane_no)]
+        # background_coordinates = background_coordinates_list[zplane_no]
+        actual_bacteria_coordinates = actual_bacteria_coordinates_list[zplane_no]
+        updated_predicted = update_predicted_coordinates(predicted_coordinates, actual_bacteria_coordinates)
+        updated_predicted_list.append(updated_predicted)
+        
+    return(updated_predicted_list)
+
+def TrueNeagtive (input_image, pixelwise_bac_coord):
+    
+    height, width = input_image.shape
+    pixels_avaliable = height*width
+    bac_pixels = len(pixelwise_bac_coord)
+    tn = pixels_avaliable-bac_pixels
+    
+    return tn

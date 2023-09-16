@@ -108,7 +108,7 @@ def MakeFakeBacImage (nobac_image_dict, img_scale_x, img_scale_y):
     '''
     randCoord = []
     new_fake_bac_img_list = []
-    bacteria_folder_path = r"Dataset"
+    bacteria_folder_path = r"Bacterial Dataset"
     no_bac_image_list = RetrieveNoBacteriaImages(nobac_image_dict)
     for NoBacImageNo in range(0,len(no_bac_image_list)):
         qty = random.randrange(1,20)
