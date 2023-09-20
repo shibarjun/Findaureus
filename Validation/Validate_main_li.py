@@ -83,30 +83,30 @@ plt.tight_layout()
 cbar = fig.colorbar(cax)
 
 #%% For saving the relevant variables and figures
-data = {
-        "Raw Background Images": no_bac_image,
-        "Fake Bacteria Images": fake_images_with_bacteria,
-        "Fake Bacteria Image Coordinates" : fake_images_bacteria_coordinates,
-        "Found Bacteria in Fake Bacteria Images": found_bacteria_in_fake_bacteria_image,
-        "Found Bacteria in Fake Bacteria Image Coordinates": found_bacteria_coordinates_in_fake_bacteria_image,
-        "Updated Found Bacteria in Fake Bacteria Image Coordinates": predicted_bacteria_coordinates,
-        "List of Confusion Matrix": list_of_ConfusionMatrix,
-        "Final Confusion Matrix" : final_confusion_matrix,
-        "List of Accuracy": list_of_accuracy,
-        "Mean Accuracy" : mean_accuracy,
-        "List of recall/sensitivity": list_of_recall,
-        "Mean recall/sensitivity": mean_recall_sensitivity,
-        "List of Precision": list_of_precision,
-        "Mean Precision": mean_precision,
-        "List of F1 Score" : list_of_f1_score,
-        "Mean F1 Score": mean_f1_score,
-        } 
-output_folder = 'path/'
-output_name_trialno = "Image_1_Li_T"
+# data = {
+#         "Raw Background Images": no_bac_image,
+#         "Fake Bacteria Images": fake_images_with_bacteria,
+#         "Fake Bacteria Image Coordinates" : fake_images_bacteria_coordinates,
+#         "Found Bacteria in Fake Bacteria Images": found_bacteria_in_fake_bacteria_image,
+#         "Found Bacteria in Fake Bacteria Image Coordinates": found_bacteria_coordinates_in_fake_bacteria_image,
+#         "Updated Found Bacteria in Fake Bacteria Image Coordinates": predicted_bacteria_coordinates,
+#         "List of Confusion Matrix": list_of_ConfusionMatrix,
+#         "Final Confusion Matrix" : final_confusion_matrix,
+#         "List of Accuracy": list_of_accuracy,
+#         "Mean Accuracy" : mean_accuracy,
+#         "List of recall/sensitivity": list_of_recall,
+#         "Mean recall/sensitivity": mean_recall_sensitivity,
+#         "List of Precision": list_of_precision,
+#         "Mean Precision": mean_precision,
+#         "List of F1 Score" : list_of_f1_score,
+#         "Mean F1 Score": mean_f1_score,
+#         } 
+# output_folder = 'path/'
+# output_name_trialno = "Image_1_Li_T"
 
-with open(output_folder + 'ObjectVariable_' + output_name_trialno +'.pkl', 'wb') as f:
-    pickle.dump(data, f)
-plt.savefig(output_folder+'Confusion_Matrix_'+output_name_trialno+'.png', dpi=300)
+# with open(output_folder + 'ObjectVariable_' + output_name_trialno +'.pkl', 'wb') as f:
+#     pickle.dump(data, f)
+# plt.savefig(output_folder+'Confusion_Matrix_'+output_name_trialno+'.png', dpi=300)
 
 #%% For opening pickle file
 # import pandas as pd
