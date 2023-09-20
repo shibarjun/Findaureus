@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['Validation\\Validation_Functions\\ValidateFunction_Findaureus.py', 'Validation\\Validate_main_findaureus.py', 'Validation\\Validation_Functions\\MakeBacterialImagesFunctions.py', 'Validation\\Validation_Functions\\ValidateFunctions.py', 'Validation\\Validate_main_otsu.py', 'Findaureus\\FindaureusFunctions.py']
+recent_files = ['Validation\\Validate_main_findaureus.py', 'Validation\\Validate_main_otsu.py', 'Validation\\Validate_main_li.py', 'Validation\\Validate_main_tri.py']
 
 [main]
 version = 0.2.0
