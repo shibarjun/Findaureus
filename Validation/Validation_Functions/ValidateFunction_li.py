@@ -354,7 +354,7 @@ file_metadata : TYPE dict
         bac_image,bac_centroid_coordinates,bact_area = MakeBoundingBoxWithCentroid(input_image, contours_avaliable, file_metadata)
         if bac_centroid_coordinates == []:
             no_bac_image_list.append(bac_image)
-            no_bac_image_name_list.append('z'+str(imageno))
+            no_bac_image_name_list.append('xy_Z_'+str(imageno))
         else:
             bac_image_list.append(bac_image)
             locals()["xy_Z_"+format(imageno)].append(bac_centroid_coordinates)

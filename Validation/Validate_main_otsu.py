@@ -1,8 +1,8 @@
 from Validation_Functions.MakeBacterialImagesFunctions import *
 from Validation_Functions.ValidateFunction_otsu import *
 from Validation_Functions.ValidateFunctions import *
+import matplotlib.pyplot as plt
 import pickle
-
 
 no_bac_image, scale, metadata = GetNoBacteriaImages()
 fake_images_with_bacteria, fake_images_bacteria_coordinates = MakeFakeBacImage(no_bac_image, scale[0], scale[1])
@@ -16,7 +16,8 @@ if found_no_bacteria_in_fake_bacteria_image != "":
 
 predicted_bacteria_coordinates = UpdatePredictedCoordinatesList(found_bacteria_coordinates_in_fake_bacteria_image, fake_images_bacteria_coordinates)
 true_bacteria_coordinates = fake_images_bacteria_coordinates
-#%%
+
+#statistical analysis
 list_of_ConfusionMatrix = []
 list_of_accuracy = []
 list_of_precision = []
@@ -29,15 +30,15 @@ for cm in range(0, len(true_bacteria_coordinates)):
     predicted_bacteria_set = set(predicted_bacteria_coordinates[cm])
     # background_set = set(true_background_coordinates[cm])
     
-    TP = len(true_bacteria_set.intersection(predicted_bacteria_set)) #  belonging to the positive class being classified correctly
-    FP = len(predicted_bacteria_set.difference(true_bacteria_set)) #belonging to the negative class but being classified wrongly as belonging to the positive class
-    FN = len(true_bacteria_set.difference(predicted_bacteria_set)) # belonging to the positive class but being classified wrongly as belonging to the negative class
-    # TN = TrueNeagtive(fake_images_with_bacteria[cm], pw_bac_coordinates["p_xy_"+str(cm)])- FP #belonging to the negative class being classified correctly.
-    TN = 0
-    confusion_matrix = np.array([[TP, FN], [FP, TN]])
+    TP = len(true_bacteria_set.intersection(predicted_bacteria_set)) #  Actually positive, predicted as positive
+    FP = len(predicted_bacteria_set.difference(true_bacteria_set)) #Actually positive, predicted negative
+    FN = len(true_bacteria_set.difference(predicted_bacteria_set)) # Actually negative, predicted as positive
+    # TN = TrueNeagtive(fake_images_with_bacteria[cm], pw_bac_coordinates["p_xy_"+str(cm)])- FP #Actually nagative, predicted as negative.
+    # TN = int()
+    confusion_matrix = np.array([[TP, FN], [FP, np.nan]])
     list_of_ConfusionMatrix.append(confusion_matrix)
 
-    accuracy = (TP + TN) / (TP + TN + FP + FN)
+    accuracy = (TP) / (TP + FP + FN)
     list_of_accuracy.append(accuracy)
 
     precision = TP / (TP + FP) if (TP + FP) > 0 else 0
@@ -49,17 +50,63 @@ for cm in range(0, len(true_bacteria_coordinates)):
     f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
     list_of_f1_score.append(f1_score)
 
+# overall analysis
 final_confusion_matrix = np.zeros_like(list_of_ConfusionMatrix[0])
 for matrix in list_of_ConfusionMatrix:
     final_confusion_matrix += matrix
+mean_accuracy, mean_precision, mean_f1_score = np.mean(list_of_accuracy), np.mean(list_of_precision), np.mean(list_of_f1_score)
+print("\nMean Accuracy:", mean_accuracy, "\nMean Precision:", mean_precision, "\nMean F1 Score:", mean_f1_score)
 
-print("Accuracy :", np.mean(list_of_accuracy))
+#plot the confusion matrix
+class_labels_x = ["Predicted Positive: ", "Predicted Negative: "]
+class_labels_y = ["Actual Positive,", "Actual Negative,"]
+xticks = np.arange(len(class_labels_x))
+yticks = np.arange(len(class_labels_y))
+fig, ax = plt.subplots()
 
-#output_folder = AskOutputFolder('Export')
-#with open(output_folder+'\Object_Variable_Otsu_T.pkl', 'wb') as f: 
-#    pickle.dump([acc, fake_images_bacteria_coordinates,fake_images_with_bacteria,  found_bacteria_coordinates_in_fake_bacteria_image,found_bacteria_in_fake_bacteria_image, no_bac_image], f)
+cax = ax.matshow(final_confusion_matrix, cmap=plt.cm.Blues)
+
+ax.set_xticks(xticks)
+ax.set_yticks(yticks)
+ax.set_xticklabels([])
+ax.set_yticklabels([])
+
+for i in range(len(class_labels_x)):
+    for j in range(len(class_labels_y)):
+        cell_value = final_confusion_matrix[i, j]
+        if i == 1 and j == 1:  # Check if it's the (2,2) cell
+            text = "NaN"
+        else:
+            text = f"${class_labels_y[i]}$ \n ${class_labels_x[j]}$ \n $\\bf{{{cell_value}}}$"
+        plt.text(j, i, text, ha='center', va='center', color='red', fontsize=12)
+plt.tight_layout()
+cbar = fig.colorbar(cax)
+
+#%% For saving the relevant variables and figures
+# data = {
+#         "Raw Background Images": no_bac_image,
+#         "Fake Bacteria Images": fake_images_with_bacteria,
+#         "Fake Bacteria Image Coordinates" : fake_images_bacteria_coordinates,
+#         "Found Bacteria in Fake Bacteria Images": found_bacteria_in_fake_bacteria_image,
+#         "Found Bacteria in Fake Bacteria Image Coordinates": found_bacteria_coordinates_in_fake_bacteria_image,
+#         "Updated Found Bacteria in Fake Bacteria Image Coordinates": predicted_bacteria_coordinates,
+#         "List of Confusion Matrix": list_of_ConfusionMatrix,
+#         "Final Confusion Matrix" : final_confusion_matrix,
+#         "List of Accuracy": list_of_accuracy,
+#         "Mean Accuracy" : mean_accuracy,
+#         "List of Precision": list_of_precision,
+#         "Mean Precision": mean_precision,
+#         "List of F1 Score" : list_of_f1_score,
+#         "Mean F1 Score": mean_f1_score,
+#         } 
+# output_folder = path/'
+# output_name_trialno = "Image_1_Otsu_T"
+
+# with open(output_folder + 'ObjectVariable_' + output_name_trialno +'.pkl', 'wb') as f:
+#     pickle.dump(data, f)
+# plt.savefig(output_folder+'Confusion_Matrix_'+output_name_trialno+'.png', dpi=300)
 
 #%% For opening pickle file
 # import pandas as pd
-# input_folder = 'path'
-# obj = pd.read_pickle(input_folder+'\Object_Variable_otsu_T1.pkl')
+# input_folder = r"path"
+# obj = pd.read_pickle(input_folder)
