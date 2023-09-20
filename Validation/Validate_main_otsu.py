@@ -44,7 +44,7 @@ for cm in range(0, len(true_bacteria_coordinates)):
     precision = TP / (TP + FP) if (TP + FP) > 0 else 0
     list_of_precision.append(precision)
 
-    recall = TP / (TP + FN) if (TP + FN) > 0 else 0
+    recall = TP / (TP + FN) if (TP + FN) > 0 else 0 #sensitivity
     list_of_recall.append(recall)
 
     f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
@@ -54,8 +54,8 @@ for cm in range(0, len(true_bacteria_coordinates)):
 final_confusion_matrix = np.zeros_like(list_of_ConfusionMatrix[0])
 for matrix in list_of_ConfusionMatrix:
     final_confusion_matrix += matrix
-mean_accuracy, mean_precision, mean_f1_score = np.mean(list_of_accuracy), np.mean(list_of_precision), np.mean(list_of_f1_score)
-print("\nMean Accuracy:", mean_accuracy, "\nMean Precision:", mean_precision, "\nMean F1 Score:", mean_f1_score)
+mean_accuracy, mean_precision, mean_recall_sensitivity, mean_f1_score = np.mean(list_of_accuracy), np.mean(list_of_precision), np.mean(list_of_recall), np.mean(list_of_f1_score)
+print("\nMean Accuracy:", mean_accuracy, "\nMean Precision:", mean_precision,"\nMean Sensitivity:", mean_recall_sensitivity,"\nMean F1 Score:", mean_f1_score)
 
 #plot the confusion matrix
 class_labels_x = ["Predicted Positive: ", "Predicted Negative: "]
@@ -94,13 +94,15 @@ data = {
         "Final Confusion Matrix" : final_confusion_matrix,
         "List of Accuracy": list_of_accuracy,
         "Mean Accuracy" : mean_accuracy,
+        "List of recall/sensitivity": list_of_recall,
+        "Mean recall/sensitivity": mean_recall_sensitivity,
         "List of Precision": list_of_precision,
         "Mean Precision": mean_precision,
         "List of F1 Score" : list_of_f1_score,
         "Mean F1 Score": mean_f1_score,
         } 
 output_folder = 'D:\FindAureus_images for validation_Fake bacteria process\Image_1\Otsu/'
-output_name_trialno = "Image_1_Otsu_T1"
+output_name_trialno = "Image_1_Otsu_T2"
 
 with open(output_folder + 'ObjectVariable_' + output_name_trialno +'.pkl', 'wb') as f:
     pickle.dump(data, f)
