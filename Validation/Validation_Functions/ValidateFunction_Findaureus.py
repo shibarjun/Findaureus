@@ -2,8 +2,6 @@ import czifile as cf
 import webcolors
 import cv2
 import numpy as np
-from tkinter import Tk, filedialog
-import json
 from tqdm import tqdm
 
 def ClosestColour(requested_colour):
@@ -490,88 +488,3 @@ file_metadata : TYPE dict
     
     
     return(bac_image_list, bac_centroid_xy_coordinates, no_bac_dict, bac_pixelwise_xy_coordinates, bacteria_area,file_metadata)
-
-def AskOutputFolder (foldertitle):
-    '''
-    
-
-    Parameters
-    ----------
-    foldertitle : TYPE str
-        DESCRIPTION.
-        title of the folder
-
-    Returns
-    -------
-    output_folder : TYPE str
-        DESCRIPTION.
-        directory of the folder choosen
-
-    '''
-    output_folder = filedialog.askdirectory(title=str(foldertitle))
-    return (output_folder)
-
-def ExportBacteria(bacteria_boxed_image_list=False, centroids=False, scaling_info_metadata=False, zproject=False):
-    '''
-    
-
-    Parameters
-    ----------
-    bacteria_boxed_image : TYPE list of array of uint8
-        images with bacteria in bounding box
-    centroids : TYPE dict
-        bacteria coordinates
-    scaling_info_metadata : TYPE list
-        scaling information to create a scale bar on the z project image
-    zproject : TYPE Array of uint8
-        zproject image of the all the bacteria z planes
-
-    Returns
-    -------
-    
-
-    '''
-    output_folder = AskOutputFolder('Export folder')
-    if bacteria_boxed_image_list and centroids:
-        
-        for listsize in range(0, len(bacteria_boxed_image_list)):
-            bacteria_boxed = bacteria_boxed_image_list[listsize]
-            cv2.imwrite(output_folder+'/Z_%i.png'%listsize, bacteria_boxed)
-            with open(output_folder+'/BacteriaCoordinates.json', 'w') as fp:
-                fp.write(json.dumps(centroids))
-    # print('\nBacteria image/images and coordinates exported at' + output_folder)
-    
-    
-    return(output_folder)
-
-def FindAureus():
-    '''
-    
-
-    Returns
-    -------
-    bac_image_list = z planes with bacteria boxed
-    bac_centroid_xy_coordinates: dict- coordinates of the box with bacteria
-    no_bact_dict: dict- z planes and with z plane numbers with no bacteria
-    bac_pixelwise_xy_coordinates: all pixle coordinates with suspected bacteria
-
-    '''
-    root = Tk()
-    root.withdraw()
-    filename = filedialog.askopenfilename(filetypes = [("czi files","*.czi")])
-    inputimagefilemetadata, inputimagefilenumpyarray = ReadImageFile(filename)
-    channels = ChannelsAvaliable(inputimagefilemetadata)
-    choosechannel = ChooseChannel(channels)
-    channelimagelist = ChannelImageList(inputimagefilenumpyarray, choosechannel)
-    faureus = FindBacteriaAndNoBacteria(channelimagelist, inputimagefilemetadata)
-    if faureus[0] != []:
-        asktoexport = input("Do you want to export the images and the bacterial coordinates? Y/N :")
-        if asktoexport=='Y' or asktoexport=='yes' or asktoexport=='y':
-            out_directory = ExportBacteria(faureus[0], faureus[1])
-        else:
-            pass
-    else:
-        print('No images with bacteria to export, please do not ask for it')
-        pass
-    
-    return(faureus)

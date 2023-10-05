@@ -1,8 +1,6 @@
 from Validation_Functions.MakeBacterialImagesFunctions import *
 from Validation_Functions.ValidateFunction_li import *
 from Validation_Functions.ValidateFunctions import *
-import matplotlib.pyplot as plt
-import pickle
 
 no_bac_image, scale, metadata = GetNoBacteriaImages()
 fake_images_with_bacteria, fake_images_bacteria_coordinates = MakeFakeBacImage(no_bac_image, scale[0], scale[1])
@@ -38,7 +36,10 @@ for cm in range(0, len(true_bacteria_coordinates)):
     confusion_matrix = np.array([[TP, FN], [FP, np.nan]])
     list_of_ConfusionMatrix.append(confusion_matrix)
 
-    accuracy = (TP) / (TP + FP + FN)
+    try:
+        accuracy = TP / (TP + FP + FN)
+    except ZeroDivisionError:
+        continue
     list_of_accuracy.append(accuracy)
 
     precision = TP / (TP + FP) if (TP + FP) > 0 else 0
@@ -58,27 +59,27 @@ mean_accuracy, mean_precision, mean_recall_sensitivity, mean_f1_score = np.mean(
 print("\nMean Accuracy:", mean_accuracy, "\nMean Precision:", mean_precision,"\nMean Sensitivity:", mean_recall_sensitivity,"\nMean F1 Score:", mean_f1_score)
 
 #plot the confusion matrix
-class_labels_x = ["Predicted Positive: ", "Predicted Negative: "]
-class_labels_y = ["Actual Positive,", "Actual Negative,"]
-xticks = np.arange(len([]))
-yticks = np.arange(len([]))
+class_labels_x = ["Bacteria", "Background"]
+class_labels_y = ["Bacteria", "Background"]
+xticks = np.arange(len(class_labels_x))
+yticks = np.arange(len(class_labels_y))
 fig, ax = plt.subplots()
 
 cax = ax.matshow(final_confusion_matrix, cmap=plt.cm.Blues)
 
 ax.set_xticks(xticks)
 ax.set_yticks(yticks)
-ax.set_xticklabels(class_labels_x)
-ax.set_yticklabels(class_labels_y)
+ax.set_xticklabels(class_labels_x, rotation=0, ha='center',fontsize=20)
+ax.set_yticklabels(class_labels_y, rotation=90, va='center',fontsize=20)
 
 for i in range(len(class_labels_x)):
     for j in range(len(class_labels_y)):
         cell_value = final_confusion_matrix[i, j]
-        if i == 1 and j == 1:  # Check if it's the (2,2) cell
-            text = "NaN"
+        if not math.isnan(cell_value):  # Check if the value is not NaN
+            text = f"${int(cell_value)}$"
         else:
-            text = f"${class_labels_y[i]}$ \n ${class_labels_x[j]}$ \n $\\bf{{{cell_value}}}$"
-        plt.text(j, i, text, ha='center', va='center', color='red', fontsize=12)
+            text = "NaN"
+        plt.text(j, i, text, ha='center', va='center', color='red', fontsize=25)
 plt.tight_layout()
 cbar = fig.colorbar(cax)
 
