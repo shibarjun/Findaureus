@@ -7,18 +7,12 @@
 
 ## Running the application
 
-1. Access the following link and click on the "Download Findaureus" button.
-2. Choose the option to download the software as a ZIP file.
-3. Once the download is complete, locate the downloaded ZIP file on your computer.
-4. Extract the contents of the ZIP file using your preferred extraction tool, such as WinRAR or 7-Zip.
-5. After extraction, a folder containing the extracted files will be created.
-6. Open the extracted folder and locate the executable (EXE) file named "Findaureus".
-7. Double-click on the EXE file to launch the software application.
-8. You can now utilize the software as intended.
+1. Go to the latest release or click on this [link](https://github.com/shibarjun/Findaureus/releases/download/untagged-535b007f3400e6311660/Findaureus.zip) to download the Findaureus.zip file.
+2. Use your preferred extraction tool, such as WinRAR or 7-Zip, to extract the ZIP file's contents.
+3. Double-click on the "Findaureus" shortcut in the extracted folder to open the application.
+4. Now you can use the software as intended.
 
-[Download Findaureus](https://github.com/shibarjun/Findaureus/releases/download/untagged-535b007f3400e6311660/Findaureus.zip)
-
-Findaureus, currently under testing, is being evaluated on infected mouse bone dataset, CZI (Carl Zeiss) file extensions. This choice is driven by the limited variety of datasets available for testing purposes. However, it's worth noting that the software is designed to accommodate other image file extensions as well, specifically ND2 (Nikon) and LIF (Leica). Users are encouraged to report any bugs via the Issues page on GitHub or via below contact. As the application gains wider usage, we will have the opportunity to engage with various file extensions, diverse tissue types, and bacteria. This will allow us to enhance the application through future updates, ensuring its continual improvement.
+Findaureus is currently undergoing testing on an infected mouse bone dataset with CZI file extensions. This choice was made due to the limited variety of datasets available for testing purposes. However, it's worth noting that the software has been designed to support other image file extensions, specifically ND2 (Nikon) and LIF (Leica). Users are encouraged to report any bugs they encounter via the Issues page on GitHub or through the contact information provided below. As the application gains wider usage, we will have the opportunity to engage with various file extensions, diverse tissue types, and bacteria. This will allow us to improve the application through future updates, ensuring it continues to enhance its functionality.
 
 Contact: shibarjunmandal@gmail.com / shibarjun.mandal@leibniz.ipht.de
 
@@ -36,7 +30,7 @@ Findaureus is an open-source Python-based application that helps researchers and
 
 ## Demo
 
-For the convenience of application testing, we provide two types of CZI extension image files: a tissue overview scan (3788 pixels (x) × 3788 pixels (y) × 3 (z) × 6 (channel)) and a detail scan (1316 pixels (x) × 1316 pixels (y) × 120 (z) × 4 (channel)). These files are currently publicly accessible and can be found in [here](https://github.com/shibarjun/Findaureus/releases/download/v1.0.0/Dataset.zip). Please ensure to [cite the article](https://www.mdpi.com/1422-0067/24/11/9762) if you utilize this data for scientific publication or any other purpose. It is important to note that all the image files belong to the referenced research article. However, hands-on demonstrations are available upon request. While waiting, you can enjoy the application demo video below.
+To facilitate application testing, we offer two types of CZI extension image files: a tissue overview scan (3788 x 3788 x 3 x 6) and a detailed scan (1316 x 1316 x 120 x 4). These files are currently available to the public and can be found at the latest release or [here](https://github.com/shibarjun/Findaureus/releases/download/v1.0.0/Dataset.zip). If you use this data for scientific publication or any other purpose, please cite this [article](https://www.mdpi.com/1422-0067/24/11/9762). Please note that all image files belong to the referenced research article. Upon request, we can provide demonstrations with additional image files that are not included in the repository.
 
 <p align="center">
 <img src = "https://github.com/shibarjun/FindAureus/blob/main/Images/Findaureus_Demo.gif" width="600" height="550" />   
