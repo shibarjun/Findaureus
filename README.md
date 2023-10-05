@@ -30,7 +30,7 @@ Findaureus is an open-source Python-based application that helps researchers and
 
 ## Demo
 
-To facilitate application testing, we offer two types of CZI extension image files: a tissue overview scan (3788 x 3788 x 3 x 6) and a detailed scan (1316 x 1316 x 120 x 4). These files are currently available to the public and can be found at the latest release or [here](https://github.com/shibarjun/Findaureus/releases/download/v1.0.0/Dataset.zip). If you use this data for scientific publication or any other purpose, please cite this [article](https://www.mdpi.com/1422-0067/24/11/9762). Please note that all image files belong to the referenced research article. Upon request, we can provide demonstrations with additional image files that are not included in the repository.
+To facilitate application testing, we offer two types of CZI extension image files: a tissue overview scan (3788 x 3788 x 3 x 6) and a detailed scan (1316 x 1316 x 120 x 4). These files are currently available to the public and can be found at the latest release or [here](https://github.com/shibarjun/Findaureus/releases/download/untagged-9eee0dd3fb29d6cdb9d4/Dataset.zip). If you use this data for scientific publication or any other purpose, please cite this [article](https://www.mdpi.com/1422-0067/24/11/9762). Please note that all image files belong to the referenced research article. Upon request, we can provide demonstrations with additional image files that are not included in the repository.
 
 <p align="center">
 <img src = "https://github.com/shibarjun/FindAureus/blob/main/Images/Findaureus_Demo.gif" width="600" height="550" />   
