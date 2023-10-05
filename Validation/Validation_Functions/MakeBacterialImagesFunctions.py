@@ -1,8 +1,8 @@
 import glob
 import random
 import cv2
-import numpy as np
 from Validation_Functions.ValidateFunction_Findaureus import *
+from tkinter import Tk, filedialog
 
 def GetNoBacteriaImages():
     '''
