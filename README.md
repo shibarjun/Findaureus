@@ -7,7 +7,7 @@
 
 ## Running the application
 
-1. Go to the latest release or click on this [link](https://github.com/shibarjun/Findaureus/releases/download/untagged-535b007f3400e6311660/Findaureus.zip) to download the Findaureus.zip file.
+1. Go to the latest release or click on this [link](https://github.com/shibarjun/Findaureus/releases/download/untagged-9eee0dd3fb29d6cdb9d4/Findaureus.zip) to download the Findaureus.zip file.
 2. Use your preferred extraction tool, such as WinRAR or 7-Zip, to extract the ZIP file's contents.
 3. Double-click on the "Findaureus" shortcut in the extracted folder to open the application.
 4. Now you can use the software as intended.
