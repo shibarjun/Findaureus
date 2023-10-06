@@ -10,7 +10,7 @@
 1. Go to the latest release or click on this [link](https://github.com/shibarjun/Findaureus/releases/download/untagged-9eee0dd3fb29d6cdb9d4/Findaureus.zip) to download the Findaureus.zip file.
 2. Use your preferred extraction tool, such as WinRAR or 7-Zip, to extract the ZIP file's contents.
 3. Double-click on the "Findaureus" shortcut in the extracted folder to open the application.
-4. Now you can use the software as intended.
+4. Use the application as intended.
 
 Findaureus is currently undergoing testing on an infected mouse bone dataset with CZI file extensions. This choice was made due to the limited variety of datasets available for testing purposes. However, it's worth noting that the software has been designed to support other image file extensions, specifically ND2 (Nikon) and LIF (Leica). Users are encouraged to report any bugs they encounter via the Issues page on GitHub or through the contact information provided below. As the application gains wider usage, we will have the opportunity to engage with various file extensions, diverse tissue types, and bacteria. This will allow us to improve the application through future updates, ensuring it continues to enhance its functionality.
 
