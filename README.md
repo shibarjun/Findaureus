@@ -7,7 +7,7 @@
 
 ## Running the application
 
-1. Go to the latest release or click on this [link](https://github.com/shibarjun/Findaureus/releases/download/untagged-9eee0dd3fb29d6cdb9d4/Findaureus.zip) to download the Findaureus.zip file.
+1. Go to the latest release or click on this [link](https://github.com/shibarjun/Findaureus/releases/download/v1.0.0/Findaureus.zip) to download the Findaureus.zip file.
 2. Use your preferred extraction tool, such as WinRAR or 7-Zip, to extract the ZIP file's contents.
 3. Double-click on the "Findaureus" shortcut in the extracted folder to open the application.
 4. Use the application as intended.
@@ -30,7 +30,7 @@ Findaureus is an open-source Python-based application that helps researchers and
 
 ## Demo
 
-To facilitate application testing, we offer several CZI extension image files consisting of tissue overview scans and detailed scans. These files are currently available to the public and can be found [here](https://github.com/shibarjun/Findaureus/releases/download/untagged-9eee0dd3fb29d6cdb9d4/Dataset.zip). If you use this data for scientific publication or any other purpose, please cite this [article](https://www.mdpi.com/1422-0067/24/11/9762). Please note that all image files belong to the referenced research article.
+To facilitate application testing, we offer several CZI extension image files consisting of tissue overview scans and detailed scans. These files are publicly available through the [GitHub repository](https://github.com/shibarjun/Findaureus/releases/download/v1.0.0/Dataset.zip) or open research repository. If you use this data for scientific publication or any other purpose, please cite this [article](https://www.mdpi.com/1422-0067/24/11/9762). Please note that all image files belong to the referenced research article.
 
 <p align="center">
 <img src = "https://github.com/shibarjun/FindAureus/blob/main/Images/Findaureus_Demo.gif" width="600" height="550" />   
